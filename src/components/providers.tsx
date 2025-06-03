@@ -5,6 +5,8 @@ import {
 } from '@tanstack/react-router';
 import { RouterProvider } from 'react-aria-components';
 
+import { ThemeProvider } from './theme-provider';
+
 declare module 'react-aria-components' {
   interface RouterConfig {
     href: ToOptions['to'];
@@ -19,7 +21,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
     <RouterProvider
       navigate={(to, options) => router.navigate({ to, ...options })}
     >
-      {children}
+      <ThemeProvider>{children}</ThemeProvider>
     </RouterProvider>
   );
 }

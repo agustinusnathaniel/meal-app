@@ -7,7 +7,12 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "includes": ["src/**/*", "!src/*.gen.ts"]
+    "includes": [
+      "src/**/*",
+      "!src/*.gen.ts",
+      "!turbo",
+      "!src/components/ui/**/*"
+    ]
   },
   "formatter": {
     "enabled": true,

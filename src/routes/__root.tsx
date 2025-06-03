@@ -3,6 +3,7 @@ import { createRootRoute, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
 import { Providers } from '@/components/providers';
+import { RootLayout } from '@/layout';
 import { queryClient } from '@/services/api/constants';
 
 export const Route = createRootRoute({
@@ -10,7 +11,9 @@ export const Route = createRootRoute({
     <>
       <Providers>
         <QueryClientProvider client={queryClient}>
-          <Outlet />
+          <RootLayout>
+            <Outlet />
+          </RootLayout>
         </QueryClientProvider>
       </Providers>
       <TanStackRouterDevtools />
