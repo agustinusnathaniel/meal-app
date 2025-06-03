@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as AppImport } from './routes/_app'
 import { Route as AppIndexImport } from './routes/_app/index'
+import { Route as AppMealViewMealIdImport } from './routes/_app/meal/view/$mealId'
 
 // Create/Update Routes
 
@@ -24,6 +25,12 @@ const AppRoute = AppImport.update({
 const AppIndexRoute = AppIndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+
+const AppMealViewMealIdRoute = AppMealViewMealIdImport.update({
+  id: '/meal/view/$mealId',
+  path: '/meal/view/$mealId',
   getParentRoute: () => AppRoute,
 } as any)
 
@@ -45,6 +52,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppIndexImport
       parentRoute: typeof AppImport
     }
+    '/_app/meal/view/$mealId': {
+      id: '/_app/meal/view/$mealId'
+      path: '/meal/view/$mealId'
+      fullPath: '/meal/view/$mealId'
+      preLoaderRoute: typeof AppMealViewMealIdImport
+      parentRoute: typeof AppImport
+    }
   }
 }
 
@@ -52,10 +66,12 @@ declare module '@tanstack/react-router' {
 
 interface AppRouteChildren {
   AppIndexRoute: typeof AppIndexRoute
+  AppMealViewMealIdRoute: typeof AppMealViewMealIdRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
   AppIndexRoute: AppIndexRoute,
+  AppMealViewMealIdRoute: AppMealViewMealIdRoute,
 }
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
@@ -63,24 +79,27 @@ const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
 export interface FileRoutesByFullPath {
   '': typeof AppRouteWithChildren
   '/': typeof AppIndexRoute
+  '/meal/view/$mealId': typeof AppMealViewMealIdRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof AppIndexRoute
+  '/meal/view/$mealId': typeof AppMealViewMealIdRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/_app': typeof AppRouteWithChildren
   '/_app/': typeof AppIndexRoute
+  '/_app/meal/view/$mealId': typeof AppMealViewMealIdRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '' | '/'
+  fullPaths: '' | '/' | '/meal/view/$mealId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/_app' | '/_app/'
+  to: '/' | '/meal/view/$mealId'
+  id: '__root__' | '/_app' | '/_app/' | '/_app/meal/view/$mealId'
   fileRoutesById: FileRoutesById
 }
 
@@ -108,11 +127,16 @@ export const routeTree = rootRoute
     "/_app": {
       "filePath": "_app.tsx",
       "children": [
-        "/_app/"
+        "/_app/",
+        "/_app/meal/view/$mealId"
       ]
     },
     "/_app/": {
       "filePath": "_app/index.tsx",
+      "parent": "/_app"
+    },
+    "/_app/meal/view/$mealId": {
+      "filePath": "_app/meal/view/$mealId.tsx",
       "parent": "/_app"
     }
   }

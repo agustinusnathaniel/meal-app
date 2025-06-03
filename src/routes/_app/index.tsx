@@ -1,35 +1,69 @@
 import { debounce } from '@tanstack/react-pacer';
 import { useQuery } from '@tanstack/react-query';
-import { createFileRoute } from '@tanstack/react-router';
-import { useState } from 'react';
+import {
+  createFileRoute,
+  Link,
+  stripSearchParams,
+  useNavigate,
+} from '@tanstack/react-router';
+import { fallback, zodValidator } from '@tanstack/zod-adapter';
+import { z } from 'zod';
 
 import { Card } from '@/components/ui/card';
 import { Loader } from '@/components/ui/loader';
 import { TextField } from '@/components/ui/text-field';
+import { useMediaQuery } from '@/hooks/use-media-query';
 import { fetchMealSearchResultQueryOptions } from '@/services/api/search';
+
+const mealSearchSchema = z.object({
+  keyword: fallback(z.string(), '').default(''),
+});
+
+const defaultSearchParams = {
+  keyword: '',
+};
 
 export const Route = createFileRoute('/_app/')({
   component: App,
-  loader: ({ context: { queryClient } }) => {
-    queryClient.ensureQueryData(fetchMealSearchResultQueryOptions());
+  validateSearch: zodValidator(mealSearchSchema),
+  loaderDeps: ({ search: { keyword } }) => ({ keyword }),
+  loader: ({ context: { queryClient }, deps }) => {
+    queryClient.ensureQueryData(
+      fetchMealSearchResultQueryOptions({
+        queryParams: {
+          s: deps.keyword,
+        },
+      }),
+    );
+  },
+  search: {
+    middlewares: [stripSearchParams(defaultSearchParams)],
   },
 });
 
 function App() {
-  const [search, setSearch] = useState<string>();
+  const navigate = useNavigate({ from: Route.fullPath });
+  const { keyword } = Route.useSearch();
   const mealSearchResult = useQuery(
-    fetchMealSearchResultQueryOptions({ queryParams: { s: search ?? '' } }),
+    fetchMealSearchResultQueryOptions({
+      queryParams: { s: keyword ?? '' },
+    }),
   );
   const data = mealSearchResult.data;
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
-  const handleChangeKeyword = debounce((value: string) => setSearch(value), {
-    wait: 500,
-  });
+  const handleChangeKeyword = debounce(
+    (keyword: string) => navigate({ to: '/', search: { keyword } }),
+    {
+      wait: 500,
+    },
+  );
 
   return (
     <div className="flex flex-col gap-4">
       <TextField
         onChange={handleChangeKeyword}
+        defaultValue={keyword}
         placeholder="Insert keyword here"
       />
       {mealSearchResult.isLoading ? (
@@ -42,19 +76,26 @@ function App() {
       ) : null}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {(data?.meals ?? []).map((meal) => (
-          <Card key={meal.idMeal}>
-            <Card.Header>
-              <Card.Title>{meal.strMeal}</Card.Title>
-              <Card.Description>{meal.strCategory}</Card.Description>
-            </Card.Header>
-            <Card.Content>
-              <img
-                src={meal.strMealThumb}
-                alt={meal.strMeal}
-                className="rounded-xl aspect-3/2 object-cover"
-              />
-            </Card.Content>
-          </Card>
+          <Link
+            to="/meal/view/$mealId"
+            params={{ mealId: meal.idMeal }}
+            key={meal.idMeal}
+            preload={isMobile ? 'viewport' : undefined}
+          >
+            <Card>
+              <Card.Header>
+                <Card.Title>{meal.strMeal}</Card.Title>
+                <Card.Description>{meal.strCategory}</Card.Description>
+              </Card.Header>
+              <Card.Content>
+                <img
+                  src={meal.strMealThumb}
+                  alt={meal.strMeal}
+                  className="rounded-xl aspect-3/2 object-cover"
+                />
+              </Card.Content>
+            </Card>
+          </Link>
         ))}
       </div>
     </div>
