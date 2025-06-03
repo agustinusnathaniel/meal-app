@@ -7,5 +7,8 @@ export default defineConfig({
       include: ["src/utils/**/**.{ts,tsx,js,jsx}"],
     },
   },
-  plugins: [tsConfigPaths()],
+  plugins: [
+    // @ts-ignore until rolldown-vite stable
+    tsConfigPaths(),
+  ],
 });
