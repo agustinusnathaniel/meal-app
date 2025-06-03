@@ -8,7 +8,7 @@ import { Loader } from '@/components/ui/loader';
 import { TextField } from '@/components/ui/text-field';
 import { fetchMealSearchResultQueryOptions } from '@/services/api/search';
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute('/_app/')({
   component: App,
   loader: ({ context: { queryClient } }) => {
     queryClient.ensureQueryData(fetchMealSearchResultQueryOptions());

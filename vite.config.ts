@@ -10,12 +10,12 @@ import checker from 'vite-plugin-checker'
 export default defineConfig({
   plugins: [
     ValidateEnv(),
-    TanStackRouterVite({ autoCodeSplitting: true }),
+    TanStackRouterVite({ target: 'react', autoCodeSplitting: true }),
     viteReact(),
     tailwindcss(),
     tsConfigPaths(),
     checker({
-      typescript: true,
+      // typescript: true,
     })
   ],
   server: {

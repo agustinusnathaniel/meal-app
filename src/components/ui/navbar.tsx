@@ -1,3 +1,5 @@
+'use client'
+
 import { createContext, use, useCallback, useId, useMemo, useState } from "react"
 
 import { Button, type ButtonProps } from "@/components/ui/button"

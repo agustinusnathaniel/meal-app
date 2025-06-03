@@ -14,9 +14,7 @@ export default function AppNavbar(props: React.ComponentProps<typeof Navbar>) {
           <IconArchive className="size-6 sm:size-5" />
         </Navbar.Logo>
         <Navbar.Section>
-          <Navbar.Item href="/" isCurrent>
-            Home
-          </Navbar.Item>
+          <Navbar.Item href="/">Home</Navbar.Item>
         </Navbar.Section>
 
         <Navbar.Section className="ml-auto hidden md:flex">
