@@ -8,12 +8,17 @@ import { routeTree } from './routeTree.gen';
 import '@fontsource-variable/geologica';
 import './styles.css';
 
+import { QueryClientProvider } from '@tanstack/react-query';
+
 import reportWebVitals from './reportWebVitals.ts';
+import { queryClient } from './services/api/constants.ts';
 
 // Create a new router instance
 const router = createRouter({
   routeTree,
-  context: {},
+  context: {
+    queryClient,
+  },
   defaultPreload: 'intent',
   scrollRestoration: true,
   defaultStructuralSharing: true,
@@ -33,7 +38,9 @@ if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <StrictMode>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </StrictMode>,
   );
 }

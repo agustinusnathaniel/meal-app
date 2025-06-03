@@ -4,7 +4,7 @@ export type GetMealSearchResultQueryParams = {
 };
 
 export type GetMealSearchResultResponseData = {
-  meals: Array<{
+  meals?: Array<{
     idMeal: string;
     strMeal: string;
     strCategory: string;

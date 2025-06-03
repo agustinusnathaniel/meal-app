@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { queryOptions } from '@tanstack/react-query';
 
 import { type APIFetcherParams, fetcher } from './fetcher';
 
@@ -8,7 +8,7 @@ type UseAppFetcherParams<ResDataType> = APIFetcherParams & {
   customFetcher?: (params: APIFetcherParams) => Promise<ResDataType>;
 };
 
-export const useAppFetcher = <ResDataType>({
+export const appQueryOptionsConstructor = <ResDataType>({
   rootPath,
   path,
   config,
@@ -16,7 +16,7 @@ export const useAppFetcher = <ResDataType>({
   customFetcher,
   refreshInterval,
 }: UseAppFetcherParams<ResDataType>) =>
-  useQuery({
+  queryOptions({
     retryOnMount: false,
     refetchOnMount: true,
     refetchOnReconnect: false,

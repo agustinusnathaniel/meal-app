@@ -17,7 +17,7 @@ export type APIFetcherParams = {
  * @note must remove leading slash when using prefixURL
  * https://github.com/sindresorhus/ky?tab=readme-ov-file#prefixurl
  */
-export const fetcherOriginResp = async <ResponseDataType>({
+const fetcherOriginResp = async <ResponseDataType>({
   rootPath = '',
   path,
   config,

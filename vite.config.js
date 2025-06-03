@@ -16,7 +16,6 @@ export default defineConfig({
     tsConfigPaths(),
     checker({
       typescript: true,
-      biome: true,
     })
   ],
   test: {

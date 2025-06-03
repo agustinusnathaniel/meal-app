@@ -14,6 +14,9 @@ importers:
       '@tailwindcss/vite':
         specifier: ^4.0.6
         version: 4.1.8(rolldown-vite@6.3.16(esbuild@0.25.5)(jiti@2.4.2)(tsx@4.19.4)(yaml@2.8.0))
+      '@tanstack/react-pacer':
+        specifier: ^0.8.0
+        version: 0.8.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@tanstack/react-query':
         specifier: ^5.80.2
         version: 5.80.2(react@19.1.0)
@@ -1417,8 +1420,19 @@ packages:
     resolution: {integrity: sha512-K7JJNrRVvyjAVnbXOH2XLRhFXDkeP54Kt2P4FR1Kl2KDGlIbkua5VqZQD2rot3qaDrpufyUa63nuLai1kOLTsQ==}
     engines: {node: '>=12'}
 
+  '@tanstack/pacer@0.8.0':
+    resolution: {integrity: sha512-wh9um4sF37woA9M/Pf05eyl30/V8RYN5x06yDQIhdJ+dB4YsQUR7qt+gIyGmygutFvqTMKDERXSC7NLIBZND9Q==}
+    engines: {node: '>=18'}
+
   '@tanstack/query-core@5.80.2':
     resolution: {integrity: sha512-g2Es97uwFk7omkWiH9JmtLWSA8lTUFVseIyzqbjqJEEx7qN+Hg6jbBdDvelqtakamppaJtGORQ64hEJ5S6ojSg==}
+
+  '@tanstack/react-pacer@0.8.0':
+    resolution: {integrity: sha512-nQX5ACRHdOiZjPOudA3Ii64mPfRkeRkSYtjQaRMD3FqY9AQKuQJgPglAFA7U4UenLOXJvqXiKMWzFDi1Bw9EZQ==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
 
   '@tanstack/react-query@5.80.2':
     resolution: {integrity: sha512-LfA0SVheJBOqC8RfJw/JbOW3yh2zuONQeWU5Prjm7yjUGUONeOedky1Bj39Cfj8MRdXrZV+DxNT7/DN/M907lQ==}
@@ -5059,7 +5073,15 @@ snapshots:
 
   '@tanstack/history@1.115.0': {}
 
+  '@tanstack/pacer@0.8.0': {}
+
   '@tanstack/query-core@5.80.2': {}
+
+  '@tanstack/react-pacer@0.8.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+    dependencies:
+      '@tanstack/pacer': 0.8.0
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
 
   '@tanstack/react-query@5.80.2(react@19.1.0)':
     dependencies:

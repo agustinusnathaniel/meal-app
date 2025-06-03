@@ -1,20 +1,20 @@
-import { useAppFetcher } from '@/services/api/hooks';
+import { appQueryOptionsConstructor } from '@/services/api/utils';
 
 import type {
   GetMealSearchResultQueryParams,
   GetMealSearchResultResponseData,
 } from './types';
 
-type UseGetMealSearchResultParams = {
+type FetchMealSearchResultParams = {
   queryParams: GetMealSearchResultQueryParams;
 };
 
-export const useGetMealSearchResult = ({
-  queryParams,
-}: UseGetMealSearchResultParams) =>
-  useAppFetcher<GetMealSearchResultResponseData>({
+export const fetchMealSearchResultQueryOptions = (
+  params?: FetchMealSearchResultParams,
+) =>
+  appQueryOptionsConstructor<GetMealSearchResultResponseData>({
     path: '/search.php',
     config: {
-      searchParams: queryParams,
+      searchParams: params?.queryParams ?? { s: '' },
     },
   });
