@@ -3,7 +3,8 @@
   "tasks": {
     "type:check": {
       "inputs": ["tsconfig.json", "src/**"],
-      "outputs": ["*.tsbuildinfo"]
+      "outputs": ["*.tsbuildinfo"],
+      "env": ["VITE_API_BASE_URL", "VITE_API_KEY"]
     },
     "biome:check": {
       "outputs": [],
@@ -16,7 +17,7 @@
     "build": {
       "dependsOn": ["type:check"],
       "outputs": ["dist/**", "public/**"],
-      "env": []
+      "env": ["VITE_API_BASE_URL", "VITE_API_KEY"]
     },
 		"test": {
       "outputs": ["node_modules/.vite/**/results.json"],
