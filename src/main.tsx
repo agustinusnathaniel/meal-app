@@ -29,11 +29,10 @@ const router = createRouter({
   defaultStructuralSharing: true,
   defaultPreloadStaleTime: 0,
   defaultPendingComponent: () => (
-    <div className="flex justify-center my-24">
+    <div className="mx-auto">
       <Loader size="large" variant="ring" />
     </div>
   ),
-  defaultPendingMs: 100,
   defaultNotFoundComponent: () => (
     <div className="text-center my-24 flex flex-col gap-4 items-center">
       <h1 className="text-4xl font-bold">404</h1>

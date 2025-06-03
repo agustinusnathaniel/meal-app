@@ -80,7 +80,7 @@ function App() {
             to="/meal/view/$mealId"
             params={{ mealId: meal.idMeal }}
             key={meal.idMeal}
-            preload={false}
+            preload={isMobile ? 'viewport' : undefined}
           >
             <Card>
               <Card.Header>
