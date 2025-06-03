@@ -79,11 +79,11 @@ function App() {
       {data?.meals?.length ? (
         <LazyMotion features={domAnimation}>
           <m.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-4"
             variants={{
               show: {
                 transition: {
-                  staggerChildren: 0.1,
+                  staggerChildren: 0.05,
                 },
               },
             }}
@@ -102,10 +102,12 @@ function App() {
                     hidden: {
                       y: 50,
                       opacity: 0,
+                      filter: 'blur(15px)',
                     },
                     show: {
                       y: 0,
                       opacity: 1,
+                      filter: 'blur(0)',
                       transition: { type: 'spring' },
                     },
                   }}

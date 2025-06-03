@@ -1,12 +1,15 @@
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, notFound } from '@tanstack/react-router';
+import { domAnimation, LazyMotion, type Variants } from 'motion/react';
+import * as m from 'motion/react-m';
 import { useMemo } from 'react';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
-import { Heading } from '@/components/ui/heading';
 import { lookupMealDetailByIDQueryOptions } from '@/services/api/lookup';
 
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
+
+import { useScrollTopCheck } from '@/hooks/use-scroll-top-check';
 
 export const Route = createFileRoute('/meal/view/$mealId')({
   component: RouteComponent,
@@ -21,7 +24,23 @@ export const Route = createFileRoute('/meal/view/$mealId')({
   },
 });
 
+const childVariants: Variants = {
+  hidden: {
+    y: 50,
+    opacity: 0,
+    filter: 'blur(20px)',
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+    filter: 'blur(0)',
+    transition: { type: 'spring' },
+  },
+};
+
 function RouteComponent() {
+  const ready = useScrollTopCheck();
+
   const mealId = Route.useParams().mealId;
   const { data } = useSuspenseQuery(
     lookupMealDetailByIDQueryOptions({ id: mealId }),
@@ -37,28 +56,48 @@ function RouteComponent() {
   }, [detailData?.strYoutube]);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-4 md:gap-6">
-      <img
-        src={detailData?.strMealThumb}
-        className="rounded-xl aspect-3/2 object-cover"
-        alt={detailData?.strMeal}
-      />
-      <div className="flex flex-col gap-2 md:gap-4">
-        <Heading>{detailData?.strMeal}</Heading>
-        <div className="text-gray-500">
-          <p>{detailData?.strCategory}</p>
-          <p>{detailData?.strTags}</p>
-        </div>
+    <LazyMotion features={domAnimation}>
+      <m.div
+        variants={{
+          show: {
+            transition: {
+              staggerChildren: 0.05,
+            },
+          },
+        }}
+        initial="hidden"
+        animate={ready ? 'show' : 'hidden'}
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[1fr_2fr] 2xl:grid-cols-[3fr_7fr] gap-4 md:gap-6"
+      >
+        <m.img
+          variants={childVariants}
+          src={detailData?.strMealThumb}
+          className="rounded-xl aspect-3/2 object-cover"
+          alt={detailData?.strMeal}
+        />
+        <div className="flex flex-col gap-2 md:gap-4">
+          <m.h1 variants={childVariants} className="text-4xl font-bold">
+            {detailData?.strMeal}
+          </m.h1>
+          <m.div variants={childVariants} className="text-gray-500">
+            <p>{detailData?.strCategory}</p>
+            <p>{detailData?.strTags}</p>
+          </m.div>
 
-        <p className="text-sm">{detailData?.strInstructions}</p>
-        {youtubeID ? (
-          <LiteYouTubeEmbed
-            title={detailData?.strMeal ?? ''}
-            id={youtubeID}
-            wrapperClass="yt-lite rounded-xl max-w-lg"
-          />
-        ) : null}
-      </div>
-    </div>
+          <m.p variants={childVariants} className="text-sm">
+            {detailData?.strInstructions}
+          </m.p>
+          {youtubeID ? (
+            <m.div variants={childVariants}>
+              <LiteYouTubeEmbed
+                title={detailData?.strMeal ?? ''}
+                id={youtubeID}
+                wrapperClass="yt-lite rounded-xl max-w-lg"
+              />
+            </m.div>
+          ) : null}
+        </div>
+      </m.div>
+    </LazyMotion>
   );
 }
