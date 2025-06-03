@@ -6,6 +6,7 @@ export default defineConfig({
     coverage: {
       include: ["src/utils/**/**.{ts,tsx,js,jsx}"],
     },
+    globals: true,
   },
   plugins: [
     // @ts-ignore until rolldown-vite stable

@@ -18,10 +18,6 @@ export default defineConfig({
       typescript: true,
     })
   ],
-  test: {
-    globals: true,
-    environment: 'jsdom',
-  },
   server: {
     open: true
   }
