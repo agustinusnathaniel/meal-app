@@ -4,6 +4,7 @@ import { TanStackRouterVite } from '@tanstack/router-plugin/vite';
 import viteReact from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import tsConfigPaths from 'vite-tsconfig-paths';
+import checker from 'vite-plugin-checker'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,9 +14,16 @@ export default defineConfig({
     viteReact(),
     tailwindcss(),
     tsConfigPaths(),
+    checker({
+      typescript: true,
+      biome: true,
+    })
   ],
   test: {
     globals: true,
     environment: 'jsdom',
   },
+  server: {
+    open: true
+  }
 });
