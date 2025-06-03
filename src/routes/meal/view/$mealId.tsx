@@ -1,5 +1,5 @@
 import { useSuspenseQuery } from '@tanstack/react-query';
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, notFound } from '@tanstack/react-router';
 import { useMemo } from 'react';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
@@ -8,12 +8,17 @@ import { lookupMealDetailByIDQueryOptions } from '@/services/api/lookup';
 
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
-export const Route = createFileRoute('/_app/meal/view/$mealId')({
+export const Route = createFileRoute('/meal/view/$mealId')({
   component: RouteComponent,
-  loader: ({ context: { queryClient }, params: { mealId } }) =>
-    queryClient.ensureQueryData(
+  loader: async ({ context: { queryClient }, params: { mealId } }) => {
+    const res = await queryClient.ensureQueryData(
       lookupMealDetailByIDQueryOptions({ id: mealId }),
-    ),
+    );
+    if (!res.meals) {
+      return notFound();
+    }
+    return res;
+  },
 });
 
 function RouteComponent() {

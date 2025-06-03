@@ -11,6 +11,10 @@ import './styles.css';
 
 import { QueryClientProvider } from '@tanstack/react-query';
 
+import { Loader } from '@/components/ui/loader.tsx';
+
+import { buttonStyles } from './components/ui/button.tsx';
+import { Link } from './components/ui/link.tsx';
 import reportWebVitals from './reportWebVitals.ts';
 import { queryClient } from './services/api/constants.ts';
 
@@ -24,6 +28,26 @@ const router = createRouter({
   scrollRestoration: true,
   defaultStructuralSharing: true,
   defaultPreloadStaleTime: 0,
+  defaultPendingComponent: () => (
+    <div className="mx-auto">
+      <Loader size="large" variant="ring" />
+    </div>
+  ),
+  defaultNotFoundComponent: () => (
+    <div className="text-center my-24 flex flex-col gap-4 items-center">
+      <h1 className="text-4xl font-bold">404</h1>
+      <p>Not Found</p>
+
+      <Link
+        className={(renderProps) =>
+          buttonStyles({ ...renderProps, intent: 'primary' })
+        }
+        href="/"
+      >
+        Back to Home
+      </Link>
+    </div>
+  ),
 });
 
 // Register the router instance for type safety

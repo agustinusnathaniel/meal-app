@@ -15,7 +15,8 @@ export default defineConfig({
     tailwindcss(),
     tsConfigPaths(),
     checker({
-      // typescript: true,
+      typescript: true,
+      biome: true,
     })
   ],
   server: {

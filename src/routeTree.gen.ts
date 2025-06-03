@@ -11,104 +11,79 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as AppImport } from './routes/_app'
-import { Route as AppIndexImport } from './routes/_app/index'
-import { Route as AppMealViewMealIdImport } from './routes/_app/meal/view/$mealId'
+import { Route as IndexImport } from './routes/index'
+import { Route as MealViewMealIdImport } from './routes/meal/view/$mealId'
 
 // Create/Update Routes
 
-const AppRoute = AppImport.update({
-  id: '/_app',
+const IndexRoute = IndexImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const AppIndexRoute = AppIndexImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => AppRoute,
-} as any)
-
-const AppMealViewMealIdRoute = AppMealViewMealIdImport.update({
+const MealViewMealIdRoute = MealViewMealIdImport.update({
   id: '/meal/view/$mealId',
   path: '/meal/view/$mealId',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => rootRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/_app': {
-      id: '/_app'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof AppImport
-      parentRoute: typeof rootRoute
-    }
-    '/_app/': {
-      id: '/_app/'
+    '/': {
+      id: '/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof AppIndexImport
-      parentRoute: typeof AppImport
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
     }
-    '/_app/meal/view/$mealId': {
-      id: '/_app/meal/view/$mealId'
+    '/meal/view/$mealId': {
+      id: '/meal/view/$mealId'
       path: '/meal/view/$mealId'
       fullPath: '/meal/view/$mealId'
-      preLoaderRoute: typeof AppMealViewMealIdImport
-      parentRoute: typeof AppImport
+      preLoaderRoute: typeof MealViewMealIdImport
+      parentRoute: typeof rootRoute
     }
   }
 }
 
 // Create and export the route tree
 
-interface AppRouteChildren {
-  AppIndexRoute: typeof AppIndexRoute
-  AppMealViewMealIdRoute: typeof AppMealViewMealIdRoute
-}
-
-const AppRouteChildren: AppRouteChildren = {
-  AppIndexRoute: AppIndexRoute,
-  AppMealViewMealIdRoute: AppMealViewMealIdRoute,
-}
-
-const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
-
 export interface FileRoutesByFullPath {
-  '': typeof AppRouteWithChildren
-  '/': typeof AppIndexRoute
-  '/meal/view/$mealId': typeof AppMealViewMealIdRoute
+  '/': typeof IndexRoute
+  '/meal/view/$mealId': typeof MealViewMealIdRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof AppIndexRoute
-  '/meal/view/$mealId': typeof AppMealViewMealIdRoute
+  '/': typeof IndexRoute
+  '/meal/view/$mealId': typeof MealViewMealIdRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/_app': typeof AppRouteWithChildren
-  '/_app/': typeof AppIndexRoute
-  '/_app/meal/view/$mealId': typeof AppMealViewMealIdRoute
+  '/': typeof IndexRoute
+  '/meal/view/$mealId': typeof MealViewMealIdRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '' | '/' | '/meal/view/$mealId'
+  fullPaths: '/' | '/meal/view/$mealId'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/meal/view/$mealId'
-  id: '__root__' | '/_app' | '/_app/' | '/_app/meal/view/$mealId'
+  id: '__root__' | '/' | '/meal/view/$mealId'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  AppRoute: typeof AppRouteWithChildren
+  IndexRoute: typeof IndexRoute
+  MealViewMealIdRoute: typeof MealViewMealIdRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  AppRoute: AppRouteWithChildren,
+  IndexRoute: IndexRoute,
+  MealViewMealIdRoute: MealViewMealIdRoute,
 }
 
 export const routeTree = rootRoute
@@ -121,23 +96,15 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/_app"
+        "/",
+        "/meal/view/$mealId"
       ]
     },
-    "/_app": {
-      "filePath": "_app.tsx",
-      "children": [
-        "/_app/",
-        "/_app/meal/view/$mealId"
-      ]
+    "/": {
+      "filePath": "index.tsx"
     },
-    "/_app/": {
-      "filePath": "_app/index.tsx",
-      "parent": "/_app"
-    },
-    "/_app/meal/view/$mealId": {
-      "filePath": "_app/meal/view/$mealId.tsx",
-      "parent": "/_app"
+    "/meal/view/$mealId": {
+      "filePath": "meal/view/$mealId.tsx"
     }
   }
 }

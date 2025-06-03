@@ -23,7 +23,7 @@ const defaultSearchParams = {
   keyword: '',
 };
 
-export const Route = createFileRoute('/_app/')({
+export const Route = createFileRoute('/')({
   component: App,
   validateSearch: zodValidator(mealSearchSchema),
   loaderDeps: ({ search: { keyword } }) => ({ keyword }),
