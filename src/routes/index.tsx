@@ -69,8 +69,8 @@ function App() {
         placeholder="Insert keyword here"
       />
       {mealSearchResult.isLoading ? (
-        <div className="mx-auto">
-          <Loader variant="ring" />
+        <div className="mx-auto my-24">
+          <Loader variant="ring" size="large" />
         </div>
       ) : null}
       {!mealSearchResult.isLoading && !mealSearchResult.data?.meals?.length ? (

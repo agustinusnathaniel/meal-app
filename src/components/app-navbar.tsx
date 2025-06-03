@@ -1,6 +1,7 @@
 'use client';
 
 import { IconArchive } from '@intentui/icons';
+import { MatchRoute } from '@tanstack/react-router';
 import { Separator } from 'react-aria-components';
 
 import { ThemeSwitcher } from '@/components/theme-switcher';
@@ -14,7 +15,13 @@ export default function AppNavbar(props: React.ComponentProps<typeof Navbar>) {
           <IconArchive className="size-6 sm:size-5" />
         </Navbar.Logo>
         <Navbar.Section>
-          <Navbar.Item href="/">Home</Navbar.Item>
+          <MatchRoute to="/">
+            {(match) => (
+              <Navbar.Item href="/" isCurrent={!!match}>
+                Home
+              </Navbar.Item>
+            )}
+          </MatchRoute>
         </Navbar.Section>
 
         <Navbar.Section className="ml-auto hidden md:flex">
