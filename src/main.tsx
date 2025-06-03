@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom/client';
 // Import the generated route tree
 import { routeTree } from './routeTree.gen';
 
+import '@fontsource-variable/geologica';
 import './styles.css';
 
 import reportWebVitals from './reportWebVitals.ts';
