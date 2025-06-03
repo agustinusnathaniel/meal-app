@@ -23,12 +23,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           title: title,
         },
         {
-          name: 'theme-color',
-          content: '#000000',
-        },
-        {
           name: 'description',
           content: description,
+        },
+        {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1.0',
+        },
+        {
+          name: 'theme-color',
+          content: '#000000',
         },
         {
           name: 'og:type',
@@ -69,6 +73,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         {
           name: 'twitter:image',
           content: ogImgUrl,
+        },
+      ],
+      links: [
+        {
+          rel: 'icon',
+          href: '/favicon.ico',
+        },
+        {
+          rel: 'apple-touch-icon',
+          href: '/apple-touch-icon-180x180.png',
+        },
+        {
+          rel: 'manifest',
+          href: '/manifest.webmanifest',
         },
       ],
     }),

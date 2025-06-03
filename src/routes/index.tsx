@@ -7,7 +7,8 @@ import {
   useNavigate,
 } from '@tanstack/react-router';
 import { fallback, zodValidator } from '@tanstack/zod-adapter';
-import { motion } from 'motion/react';
+import { domAnimation, LazyMotion } from 'motion/react';
+import * as m from 'motion/react-m';
 import { z } from 'zod';
 
 import { Card } from '@/components/ui/card';
@@ -76,55 +77,57 @@ function App() {
         <p className="text-center">No Result Found</p>
       ) : null}
       {data?.meals?.length ? (
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
-          variants={{
-            show: {
-              transition: {
-                staggerChildren: 0.1,
+        <LazyMotion features={domAnimation}>
+          <m.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+            variants={{
+              show: {
+                transition: {
+                  staggerChildren: 0.1,
+                },
               },
-            },
-          }}
-          initial="hidden"
-          animate="show"
-        >
-          {(data?.meals ?? []).map((meal) => (
-            <Link
-              to="/meal/view/$mealId"
-              params={{ mealId: meal.idMeal }}
-              preload={isMobile ? 'viewport' : undefined}
-              key={meal.idMeal}
-            >
-              <motion.div
-                variants={{
-                  hidden: {
-                    y: 50,
-                    opacity: 0,
-                  },
-                  show: {
-                    y: 0,
-                    opacity: 1,
-                    transition: { type: 'spring' },
-                  },
-                }}
+            }}
+            initial="hidden"
+            animate="show"
+          >
+            {data.meals.map((meal) => (
+              <Link
+                to="/meal/view/$mealId"
+                params={{ mealId: meal.idMeal }}
+                preload={isMobile ? 'viewport' : undefined}
+                key={meal.idMeal}
               >
-                <Card>
-                  <Card.Header>
-                    <Card.Title>{meal.strMeal}</Card.Title>
-                    <Card.Description>{meal.strCategory}</Card.Description>
-                  </Card.Header>
-                  <Card.Content>
-                    <img
-                      src={meal.strMealThumb}
-                      alt={meal.strMeal}
-                      className="rounded-xl aspect-3/2 object-cover"
-                    />
-                  </Card.Content>
-                </Card>
-              </motion.div>
-            </Link>
-          ))}
-        </motion.div>
+                <m.div
+                  variants={{
+                    hidden: {
+                      y: 50,
+                      opacity: 0,
+                    },
+                    show: {
+                      y: 0,
+                      opacity: 1,
+                      transition: { type: 'spring' },
+                    },
+                  }}
+                >
+                  <Card>
+                    <Card.Header>
+                      <Card.Title>{meal.strMeal}</Card.Title>
+                      <Card.Description>{meal.strCategory}</Card.Description>
+                    </Card.Header>
+                    <Card.Content>
+                      <img
+                        src={meal.strMealThumb}
+                        alt={meal.strMeal}
+                        className="rounded-xl aspect-3/2 object-cover"
+                      />
+                    </Card.Content>
+                  </Card>
+                </m.div>
+              </Link>
+            ))}
+          </m.div>
+        </LazyMotion>
       ) : null}
     </div>
   );

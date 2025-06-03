@@ -15,7 +15,6 @@ import { Loader } from '@/components/ui/loader.tsx';
 
 import { buttonStyles } from './components/ui/button.tsx';
 import { Link } from './components/ui/link.tsx';
-import reportWebVitals from './reportWebVitals.ts';
 import { queryClient } from './services/api/constants.ts';
 
 // Create a new router instance
@@ -75,4 +74,4 @@ if (rootElement && !rootElement.innerHTML) {
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// reportWebVitals();
