@@ -17,7 +17,7 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
-import { composeTailwindRenderProps, focusStyles } from "@/lib/primitive"
+import { composeTailwindRenderProps, focusStyles } from "@/lib/styles/primitive"
 
 interface FieldProps {
   label?: string

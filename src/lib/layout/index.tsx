@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
 
-import AppNavbar from '@/components/app-navbar';
-import { Container } from '@/components/ui/container';
+import AppNavbar from '@/lib/components/app-navbar';
+import { Container } from '@/lib/components/ui/container';
 
 import { Footer } from './components/footer';
 

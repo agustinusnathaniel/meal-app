@@ -11,11 +11,11 @@ import { domAnimation, LazyMotion } from 'motion/react';
 import * as m from 'motion/react-m';
 import { z } from 'zod';
 
-import { Card } from '@/components/ui/card';
-import { Loader } from '@/components/ui/loader';
-import { TextField } from '@/components/ui/text-field';
-import { useMediaQuery } from '@/hooks/use-media-query';
-import { fetchMealSearchResultQueryOptions } from '@/services/api/search';
+import { Card } from '@/lib/components/ui/card';
+import { Loader } from '@/lib/components/ui/loader';
+import { TextField } from '@/lib/components/ui/text-field';
+import { useMediaQuery } from '@/lib/hooks/use-media-query';
+import { fetchMealSearchResultQueryOptions } from '@/lib/services/api/search';
 
 const mealSearchSchema = z.object({
   keyword: fallback(z.string(), '').default(''),

@@ -4,8 +4,8 @@ import { IconArchive } from '@intentui/icons';
 import { MatchRoute } from '@tanstack/react-router';
 import { Separator } from 'react-aria-components';
 
-import { ThemeSwitcher } from '@/components/theme-switcher';
-import { Navbar } from '@/components/ui/navbar';
+import { ThemeSwitcher } from '@/lib/components/theme-switcher';
+import { Navbar } from '@/lib/components/ui/navbar';
 
 export default function AppNavbar(props: React.ComponentProps<typeof Navbar>) {
   return (

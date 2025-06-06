@@ -6,8 +6,8 @@ import {
 } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
-import { Providers } from '@/components/providers';
-import { RootLayout } from '@/layout';
+import { Providers } from '@/lib/components/providers';
+import { RootLayout } from '@/lib/layout';
 
 const title = 'Meal App';
 const description = 'Meal database';

@@ -7,15 +7,14 @@ import ReactDOM from 'react-dom/client';
 import { routeTree } from './routeTree.gen';
 
 import '@fontsource-variable/geologica';
-import './styles.css';
+import '@/lib/styles/globals.css';
 
 import { QueryClientProvider } from '@tanstack/react-query';
 
-import { Loader } from '@/components/ui/loader.tsx';
-
-import { buttonStyles } from './components/ui/button.tsx';
-import { Link } from './components/ui/link.tsx';
-import { queryClient } from './services/api/constants.ts';
+import { buttonStyles } from '@/lib/components/ui/button.tsx';
+import { Link } from '@/lib/components/ui/link.tsx';
+import { Loader } from '@/lib/components/ui/loader.tsx';
+import { queryClient } from '@/lib/services/api/constants.ts';
 
 // Create a new router instance
 const router = createRouter({

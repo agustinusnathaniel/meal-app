@@ -1,4 +1,4 @@
-import { Keyboard } from "@/components/ui/keyboard"
+import { Keyboard } from "@/lib/components/ui/keyboard"
 import { IconCheck } from "@intentui/icons"
 import type {
   ListBoxItemProps,

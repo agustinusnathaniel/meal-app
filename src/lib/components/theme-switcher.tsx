@@ -1,6 +1,6 @@
 import { IconMoon, IconSun } from '@intentui/icons';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@/lib/components/ui/button';
 
 import { useTheme } from './theme-provider';
 

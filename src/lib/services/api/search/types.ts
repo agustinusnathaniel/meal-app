@@ -1,4 +1,4 @@
-import type { MealEntry } from '@/services/api/types';
+import type { MealEntry } from '@/lib/services/api/types';
 
 export type GetMealSearchResultQueryParams = {
   s?: string;

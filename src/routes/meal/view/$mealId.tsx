@@ -5,11 +5,11 @@ import * as m from 'motion/react-m';
 import { useMemo } from 'react';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
-import { lookupMealDetailByIDQueryOptions } from '@/services/api/lookup';
+import { lookupMealDetailByIDQueryOptions } from '@/lib/services/api/lookup';
 
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
-import { useScrollTopCheck } from '@/hooks/use-scroll-top-check';
+import { useScrollTopCheck } from '@/lib/hooks/use-scroll-top-check';
 
 export const Route = createFileRoute('/meal/view/$mealId')({
   component: RouteComponent,

@@ -1,9 +1,9 @@
 import { createContext, use, useCallback, useId, useMemo, useState } from "react"
 
-import { Button, type ButtonProps } from "@/components/ui/button"
-import { Sheet } from "@/components/ui/sheet"
-import { useMediaQuery } from "@/hooks/use-media-query"
-import { composeTailwindRenderProps } from "@/lib/primitive"
+import { Button, type ButtonProps } from "@/lib/components/ui/button"
+import { Sheet } from "@/lib/components/ui/sheet"
+import { useMediaQuery } from "@/lib/hooks/use-media-query"
+import { composeTailwindRenderProps } from "@/lib/styles/primitive"
 import { IconHamburger } from "@intentui/icons"
 import { LayoutGroup, motion } from "motion/react"
 import type { LinkProps } from "react-aria-components"

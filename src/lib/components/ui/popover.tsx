@@ -21,7 +21,7 @@ import type {
   DialogFooterProps,
   DialogHeaderProps,
   DialogTitleProps,
-} from "@/components/ui/dialog"
+} from "@/lib/components/ui/dialog"
 import {
   Dialog,
   DialogBody,
@@ -31,8 +31,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { useMediaQuery } from "@/hooks/use-media-query"
+} from "@/lib/components/ui/dialog"
+import { useMediaQuery } from "@/lib/hooks/use-media-query"
 import { twMerge } from "tailwind-merge"
 
 type PopoverProps = DialogTriggerProps

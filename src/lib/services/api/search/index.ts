@@ -1,4 +1,4 @@
-import { appQueryOptionsConstructor } from '@/services/api/utils';
+import { appQueryOptionsConstructor } from '@/lib/services/api/utils';
 
 import type {
   GetMealSearchResultQueryParams,

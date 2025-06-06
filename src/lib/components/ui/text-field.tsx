@@ -1,9 +1,9 @@
 import { useState } from "react"
 
-import type { FieldProps } from "@/components/ui/field"
-import { Description, FieldError, FieldGroup, Input, Label } from "@/components/ui/field"
-import { Loader } from "@/components/ui/loader"
-import { composeTailwindRenderProps } from "@/lib/primitive"
+import type { FieldProps } from "@/lib/components/ui/field"
+import { Description, FieldError, FieldGroup, Input, Label } from "@/lib/components/ui/field"
+import { Loader } from "@/lib/components/ui/loader"
+import { composeTailwindRenderProps } from "@/lib/styles/primitive"
 import { IconEye, IconEyeClosed } from "@intentui/icons"
 import { Button as ButtonPrimitive, TextField as TextFieldPrimitive } from "react-aria-components"
 import type { InputProps, TextFieldProps as TextFieldPrimitiveProps } from "react-aria-components"

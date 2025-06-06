@@ -7,9 +7,9 @@ import {
   DropdownSeparator,
   dropdownItemStyles,
   dropdownSectionStyles,
-} from "@/components/ui/dropdown"
-import { PopoverContent } from "@/components/ui/popover"
-import { composeTailwindRenderProps } from "@/lib/primitive"
+} from "@/lib/components/ui/dropdown"
+import { PopoverContent } from "@/lib/components/ui/popover"
+import { composeTailwindRenderProps } from "@/lib/styles/primitive"
 import { IconBulletFill, IconCheck, IconChevronLgRight } from "@intentui/icons"
 import type {
   ButtonProps,

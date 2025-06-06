@@ -9,9 +9,9 @@ import {
   Text,
 } from "react-aria-components"
 
-import { Button, type ButtonProps } from "@/components/ui/button"
-import { useMediaQuery } from "@/hooks/use-media-query"
-import { composeTailwindRenderProps } from "@/lib/primitive"
+import { Button, type ButtonProps } from "@/lib/components/ui/button"
+import { useMediaQuery } from "@/lib/hooks/use-media-query"
+import { composeTailwindRenderProps } from "@/lib/styles/primitive"
 import { twJoin, twMerge } from "tailwind-merge"
 
 const Dialog = ({
