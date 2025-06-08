@@ -3,6 +3,7 @@ import {
   createRootRouteWithContext,
   HeadContent,
   Outlet,
+  Scripts,
 } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
@@ -89,10 +90,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           href: '/manifest.webmanifest',
         },
       ],
+      scripts: [
+        ...(import.meta.env.VITE_UMAMI_SCRIPT_URL &&
+        import.meta.env.VITE_UMAMI_WEBSITE_ID
+          ? [
+              {
+                src: import.meta.env.VITE_UMAMI_SCRIPT_URL,
+                defer: true,
+                'data-website-id': import.meta.env.VITE_UMAMI_WEBSITE_ID,
+              },
+            ]
+          : []),
+      ],
     }),
     component: () => (
       <Providers>
         <HeadContent />
+        <Scripts />
         <RootLayout>
           <Outlet />
         </RootLayout>
