@@ -3,7 +3,6 @@ import {
   createRootRouteWithContext,
   HeadContent,
   Outlet,
-  Scripts,
 } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
@@ -104,14 +103,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       ],
     }),
     component: () => (
-      <Providers>
+      <>
         <HeadContent />
-        <Scripts />
-        <RootLayout>
-          <Outlet />
-        </RootLayout>
+        <Providers>
+          <RootLayout>
+            <Outlet />
+          </RootLayout>
+        </Providers>
         <TanStackRouterDevtools position="bottom-right" />
-      </Providers>
+      </>
     ),
   },
 );
