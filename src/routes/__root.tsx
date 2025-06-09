@@ -95,7 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           ? [
               {
                 src: import.meta.env.VITE_UMAMI_SCRIPT_URL,
-                defer: true,
+                async: true,
                 'data-website-id': import.meta.env.VITE_UMAMI_WEBSITE_ID,
               },
             ]
