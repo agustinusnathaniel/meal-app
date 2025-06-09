@@ -10,8 +10,10 @@
     "includes": [
       "src/**/*",
       "!src/*.gen.ts",
-      "!.turbo/**/*",
-      "!src/lib/components/ui/**/*"
+      "!turbo",
+      "!src/lib/components/ui/**/*",
+      "*.config.ts",
+      "!*.css"
     ]
   },
   "formatter": {
@@ -73,6 +75,28 @@
       "quoteStyle": "single"
     }
   },
+  "overrides": [
+    {
+      "includes": ["src/lib/pages/**/index.tsx", "src/*.ts", "*.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/routes/**/*"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useFilenamingConvention": "off"
+          }
+        }
+      }
+    }
+  ],
   "assist": {
     "enabled": true,
     "actions": {
@@ -91,17 +115,5 @@
         }
       }
     }
-  },
-  "overrides": [
-    {
-      "includes": ["./src/routes/**/*"],
-      "linter": {
-        "rules": {
-          "style": {
-            "useFilenamingConvention": "off"
-          }
-        }
-      }
-    }
-  ]
+  }
 }

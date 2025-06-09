@@ -1,11 +1,11 @@
-import { ValidateEnv } from '@julr/vite-plugin-validate-env'
+import { ValidateEnv } from '@julr/vite-plugin-validate-env';
 import tailwindcss from '@tailwindcss/vite';
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite';
 import viteReact from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
-import tsConfigPaths from 'vite-tsconfig-paths';
-import checker from 'vite-plugin-checker'
+import checker from 'vite-plugin-checker';
 import { VitePWA, type VitePWAOptions } from 'vite-plugin-pwa';
+import tsConfigPaths from 'vite-tsconfig-paths';
 
 const pwaOptions: Partial<VitePWAOptions> = {
   registerType: 'autoUpdate',
@@ -45,6 +45,6 @@ export default defineConfig({
     VitePWA(pwaOptions),
   ],
   server: {
-    open: true
-  }
+    open: true,
+  },
 });
