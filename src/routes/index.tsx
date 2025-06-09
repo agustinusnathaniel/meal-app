@@ -73,7 +73,7 @@ function App() {
           <Loader variant="ring" size="large" />
         </div>
       ) : null}
-      {!mealSearchResult.isLoading && !mealSearchResult.data?.meals?.length ? (
+      {!(mealSearchResult.isLoading || mealSearchResult.data?.meals?.length) ? (
         <p className="text-center">No Result Found</p>
       ) : null}
       {data?.meals?.length ? (

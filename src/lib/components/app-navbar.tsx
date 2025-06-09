@@ -7,7 +7,7 @@ import { Separator } from 'react-aria-components';
 import { ThemeSwitcher } from '@/lib/components/theme-switcher';
 import { Navbar } from '@/lib/components/ui/navbar';
 
-export default function AppNavbar(props: React.ComponentProps<typeof Navbar>) {
+export const AppNavbar = (props: React.ComponentProps<typeof Navbar>) => {
   return (
     <Navbar {...props}>
       <Navbar.Nav>
@@ -47,4 +47,4 @@ export default function AppNavbar(props: React.ComponentProps<typeof Navbar>) {
       </Navbar.Compact>
     </Navbar>
   );
-}
+};

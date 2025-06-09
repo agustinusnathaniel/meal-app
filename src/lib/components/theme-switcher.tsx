@@ -8,7 +8,7 @@ interface Props {
   appearance?: 'plain' | 'outline';
 }
 
-export function ThemeSwitcher({ appearance = 'plain' }: Props) {
+export const ThemeSwitcher = ({ appearance = 'plain' }: Props) => {
   const { theme, setTheme } = useTheme();
   return (
     <Button
@@ -21,4 +21,4 @@ export function ThemeSwitcher({ appearance = 'plain' }: Props) {
       <IconMoon className="absolute transition-all scale-0 rotate-90 dark:scale-100 dark:rotate-0 h-[1.2rem] w-[1.2rem]" />
     </Button>
   );
-}
+};

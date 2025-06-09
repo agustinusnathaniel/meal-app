@@ -22,7 +22,13 @@ const fetcherOriginResp = async <ResponseDataType>({
   path,
   config,
 }: APIFetcherParams) =>
-  service<ResponseDataType>(`${rootPath}${path}`.replace(/^\/+/, ''), config);
+  service<ResponseDataType>(
+    `${rootPath}${
+      path
+      // biome-ignore lint/performance/useTopLevelRegex: -
+    }`.replace(/^\/+/, ''),
+    config,
+  );
 
 export const fetcher = async <ResponseDataType>({
   rootPath,

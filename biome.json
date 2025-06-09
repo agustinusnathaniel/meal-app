@@ -21,7 +21,51 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "a11y": {
+        "useSemanticElements": "error"
+      },
+      "complexity": {
+        "noExcessiveCognitiveComplexity": "error",
+        "noUselessStringConcat": "error",
+        "noUselessUndefinedInitialization": "error",
+        "useSimplifiedLogicExpression": "error",
+        "noVoid": "warn"
+      },
+      "correctness": {
+        "noUnusedImports": "error",
+        "noUnusedVariables": "error",
+        "noUnusedFunctionParameters": "error",
+        "useHookAtTopLevel": "error"
+      },
+      "performance": {
+        "noBarrelFile": "error",
+        "useTopLevelRegex": "error"
+      },
+      "style": {
+        "noDefaultExport": "error",
+        "useBlockStatements": "error",
+        "useCollapsedElseIf": "error",
+        "useDefaultSwitchClause": "error",
+        "useConsistentArrayType": {
+          "level": "error",
+          "options": {
+            "syntax": "generic"
+          }
+        },
+        "useFilenamingConvention": {
+          "level": "error",
+          "options": {
+            "filenameCases": ["kebab-case"]
+          }
+        }
+      },
+      "suspicious": {
+        "noDuplicateElseIf": "error",
+        "noConsole": "error",
+        "noEmptyBlockStatements": "error",
+        "useAwait": "error"
+      }
     }
   },
   "javascript": {
@@ -47,5 +91,17 @@
         }
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["./src/routes/**/*"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useFilenamingConvention": "off"
+          }
+        }
+      }
+    }
+  ]
 }

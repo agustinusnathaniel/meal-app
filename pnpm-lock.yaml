@@ -21,17 +21,17 @@ importers:
         specifier: ^5.80.6
         version: 5.80.6(react@19.1.0)
       '@tanstack/react-router':
-        specifier: ^1.120.18
-        version: 1.120.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: ^1.120.20
+        version: 1.120.20(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@tanstack/react-router-devtools':
-        specifier: ^1.120.18
-        version: 1.120.18(@tanstack/react-router@1.120.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@tanstack/router-core@1.120.17)(csstype@3.1.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tiny-invariant@1.3.3)
+        specifier: ^1.120.20
+        version: 1.120.20(@tanstack/react-router@1.120.20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@tanstack/router-core@1.120.19)(csstype@3.1.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tiny-invariant@1.3.3)
       '@tanstack/router-plugin':
-        specifier: ^1.120.18
-        version: 1.120.18(@tanstack/react-router@1.120.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(vite@6.3.5(@types/node@22.15.30)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.41.0)(tsx@4.19.4)(yaml@2.8.0))
+        specifier: ^1.120.20
+        version: 1.120.20(@tanstack/react-router@1.120.20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(vite@6.3.5(@types/node@22.15.30)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.41.0)(tsx@4.19.4)(yaml@2.8.0))
       '@tanstack/zod-adapter':
-        specifier: ^1.120.18
-        version: 1.120.18(@tanstack/react-router@1.120.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(zod@3.25.56)
+        specifier: ^1.120.20
+        version: 1.120.20(@tanstack/react-router@1.120.20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(zod@3.25.56)
       ky:
         specifier: ^1.8.1
         version: 1.8.1
@@ -2044,16 +2044,16 @@ packages:
     peerDependencies:
       react: ^18 || ^19
 
-  '@tanstack/react-router-devtools@1.120.18':
-    resolution: {integrity: sha512-iYz1jp2AJG0a+FiyxKqpg44RM9KiVzChD57RsZTQylbwjPBF+dpP1GHhSwKPS99JgA10VhsB2moo3wc7wAsmvg==}
+  '@tanstack/react-router-devtools@1.120.20':
+    resolution: {integrity: sha512-8wYUBdhaMQLo+f5GlJ31WK3T5gpQWetIG7bEGbhrgmd8Z6nZbUYfq10BtVnIwhJwiQa/39Fi9778/09N13l00A==}
     engines: {node: '>=12'}
     peerDependencies:
-      '@tanstack/react-router': ^1.120.18
+      '@tanstack/react-router': ^1.120.20
       react: '>=18.0.0 || >=19.0.0'
       react-dom: '>=18.0.0 || >=19.0.0'
 
-  '@tanstack/react-router@1.120.18':
-    resolution: {integrity: sha512-VXEP4L7We0XGKv1zRmttTbjPZfDXma6y9IV5Jo2yTrz4V4mhL4cPb7Do+shgW08dW16nJ0Yiy7VlxFd5P8LLeA==}
+  '@tanstack/react-router@1.120.20':
+    resolution: {integrity: sha512-+zNruUE9NsfGm9cHd22Xs7FRtBrBhDZe94pB69BEIjqjrEPZct6f5VhTV9WQ+bDZ6fRz8tUuxNFAgm/3Lm4AIg==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=18.0.0 || >=19.0.0'
@@ -2065,15 +2065,15 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@tanstack/router-core@1.120.17':
-    resolution: {integrity: sha512-AqNr/rJKua/q/BFcUJTFH1YNUWcLF7dzsRVlN+EdRyvGT4Vpz0wip2wroO5N/9A3463NIuLSacjiZI9UKO/4XQ==}
+  '@tanstack/router-core@1.120.19':
+    resolution: {integrity: sha512-5JUVgkxnIM3NxMwzKt0tfz2UopZVxwq6Kl7Rp33zlFJaPjpiRs46VuRjVeAvkpJd6samo1gcH1rWqmnPUmtGcw==}
     engines: {node: '>=12'}
 
-  '@tanstack/router-devtools-core@1.120.17':
-    resolution: {integrity: sha512-Ci2OV/hecsKy/ZXqK3gLS/h1Qg7OEl2Gy9c76iSYWIzroQ9nhKgsQ+qj+LxucImztWujNINXf23wkq5fVlR0EQ==}
+  '@tanstack/router-devtools-core@1.120.19':
+    resolution: {integrity: sha512-B/8riYIxs5z+6BmkycfkllhZzRV0/jt8MEqlVHU/HDyAi+00luhi+4xwqQNxiAIUpFa6+0twmGPj4SI3SPA6nQ==}
     engines: {node: '>=12'}
     peerDependencies:
-      '@tanstack/router-core': ^1.120.17
+      '@tanstack/router-core': ^1.120.19
       csstype: ^3.0.10
       solid-js: '>=1.9.5'
       tiny-invariant: ^1.3.3
@@ -2081,21 +2081,21 @@ packages:
       csstype:
         optional: true
 
-  '@tanstack/router-generator@1.120.18':
-    resolution: {integrity: sha512-q6qQNy18LxI7mInIt2mZ9m9ptCHN0scOSJbFc5OTlS1AyIecr53nfMhtbwLMx4Qo4v1GrQLl/I79OjC/IP8gFA==}
+  '@tanstack/router-generator@1.120.20':
+    resolution: {integrity: sha512-tv8uOjteyMnUUDepjknkiTQ90EL6sNuDGsfeUz0wXFQ6dy/cqYqV0pXzJuBRN79ToteWFdq5sJeypqUdzOC8+w==}
     engines: {node: '>=12'}
     peerDependencies:
-      '@tanstack/react-router': ^1.120.18
+      '@tanstack/react-router': ^1.120.20
     peerDependenciesMeta:
       '@tanstack/react-router':
         optional: true
 
-  '@tanstack/router-plugin@1.120.18':
-    resolution: {integrity: sha512-y7dZrQeJ/PbG06diJC59fYPLol5VPeoMcnIk32NzFEOBC/SpGZB/OsAdWtuEjGxEsH4HC59GZDS/LOuWI9pd/g==}
+  '@tanstack/router-plugin@1.120.20':
+    resolution: {integrity: sha512-GaDcIZSVaMoLvG6pu0yRLz8C8jtFo1avV23Q1UbZzv+1i66Uk0twcfTPy/eJbB8pgRA2P5Eu7xo7L3g5HvkGRw==}
     engines: {node: '>=12'}
     peerDependencies:
       '@rsbuild/core': '>=1.0.2'
-      '@tanstack/react-router': ^1.120.18
+      '@tanstack/react-router': ^1.120.20
       vite: '>=5.0.0 || >=6.0.0'
       vite-plugin-solid: ^2.11.2
       webpack: '>=5.92.0'
@@ -2122,8 +2122,8 @@ packages:
     resolution: {integrity: sha512-Ssi+yKcjG9ru02ieCpUBF7QQBEKGB7WQS1R9va3GHu+Oq9WjzmJ4rifzdugjTeKD3yfT7d1I+pOxRhoWog6CHw==}
     engines: {node: '>=12'}
 
-  '@tanstack/zod-adapter@1.120.18':
-    resolution: {integrity: sha512-nPephd3x7X+9z3gvf1Uf6tGrUdP9ydjAetLaOQMoa6RdjtXfGQmjSE0Ojwz28/nsEuJT+Blirpo2VNcHDXTZzQ==}
+  '@tanstack/zod-adapter@1.120.20':
+    resolution: {integrity: sha512-/B9AIuCM74U8pvIF3pjQkRhPykTzqG3LsDiFCKeaGj3FDiwRFIOihgHmKIDmA0n0LDx4NeSo0brcWGCmOVcu/g==}
     engines: {node: '>=12'}
     peerDependencies:
       '@tanstack/react-router': '>=1.43.2'
@@ -2248,8 +2248,8 @@ packages:
     resolution: {integrity: sha512-E+iruNOY8VV9s4JEbe1aNEm6MiszPRr/UfcHMz0TQh1BXSxHK+ASV1R6W4HpjBhSeS+54PIsAMCBmwD06LLsqQ==}
     hasBin: true
 
-  acorn@8.14.1:
-    resolution: {integrity: sha512-OvQ/2pUDKmgfCg++xsTX1wGxfTaszcHVcTctW4UJB4hibJx2HXxxO5UmVgyjMa+ZDsiaf5wWLXYpRWMmBI0QHg==}
+  acorn@8.15.0:
+    resolution: {integrity: sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
 
@@ -5554,7 +5554,7 @@ snapshots:
     dependencies:
       '@babel/code-frame': 7.27.1
       '@babel/parser': 7.27.5
-      '@babel/types': 7.27.3
+      '@babel/types': 7.27.6
 
   '@babel/traverse@7.27.4':
     dependencies:
@@ -7269,10 +7269,10 @@ snapshots:
       '@tanstack/query-core': 5.80.6
       react: 19.1.0
 
-  '@tanstack/react-router-devtools@1.120.18(@tanstack/react-router@1.120.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@tanstack/router-core@1.120.17)(csstype@3.1.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tiny-invariant@1.3.3)':
+  '@tanstack/react-router-devtools@1.120.20(@tanstack/react-router@1.120.20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@tanstack/router-core@1.120.19)(csstype@3.1.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tiny-invariant@1.3.3)':
     dependencies:
-      '@tanstack/react-router': 1.120.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@tanstack/router-devtools-core': 1.120.17(@tanstack/router-core@1.120.17)(csstype@3.1.3)(solid-js@1.9.7)(tiny-invariant@1.3.3)
+      '@tanstack/react-router': 1.120.20(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@tanstack/router-devtools-core': 1.120.19(@tanstack/router-core@1.120.19)(csstype@3.1.3)(solid-js@1.9.7)(tiny-invariant@1.3.3)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
       solid-js: 1.9.7
@@ -7281,11 +7281,11 @@ snapshots:
       - csstype
       - tiny-invariant
 
-  '@tanstack/react-router@1.120.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@tanstack/react-router@1.120.20(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
       '@tanstack/history': 1.120.17
       '@tanstack/react-store': 0.7.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@tanstack/router-core': 1.120.17
+      '@tanstack/router-core': 1.120.19
       jsesc: 3.1.0
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
@@ -7299,15 +7299,15 @@ snapshots:
       react-dom: 19.1.0(react@19.1.0)
       use-sync-external-store: 1.5.0(react@19.1.0)
 
-  '@tanstack/router-core@1.120.17':
+  '@tanstack/router-core@1.120.19':
     dependencies:
       '@tanstack/history': 1.120.17
       '@tanstack/store': 0.7.1
       tiny-invariant: 1.3.3
 
-  '@tanstack/router-devtools-core@1.120.17(@tanstack/router-core@1.120.17)(csstype@3.1.3)(solid-js@1.9.7)(tiny-invariant@1.3.3)':
+  '@tanstack/router-devtools-core@1.120.19(@tanstack/router-core@1.120.19)(csstype@3.1.3)(solid-js@1.9.7)(tiny-invariant@1.3.3)':
     dependencies:
-      '@tanstack/router-core': 1.120.17
+      '@tanstack/router-core': 1.120.19
       clsx: 2.1.1
       goober: 2.1.16(csstype@3.1.3)
       solid-js: 1.9.7
@@ -7315,16 +7315,16 @@ snapshots:
     optionalDependencies:
       csstype: 3.1.3
 
-  '@tanstack/router-generator@1.120.18(@tanstack/react-router@1.120.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))':
+  '@tanstack/router-generator@1.120.20(@tanstack/react-router@1.120.20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))':
     dependencies:
       '@tanstack/virtual-file-routes': 1.120.17
       prettier: 3.5.3
       tsx: 4.19.4
       zod: 3.25.56
     optionalDependencies:
-      '@tanstack/react-router': 1.120.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@tanstack/react-router': 1.120.20(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
 
-  '@tanstack/router-plugin@1.120.18(@tanstack/react-router@1.120.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(vite@6.3.5(@types/node@22.15.30)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.41.0)(tsx@4.19.4)(yaml@2.8.0))':
+  '@tanstack/router-plugin@1.120.20(@tanstack/react-router@1.120.20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(vite@6.3.5(@types/node@22.15.30)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.41.0)(tsx@4.19.4)(yaml@2.8.0))':
     dependencies:
       '@babel/core': 7.27.4
       '@babel/plugin-syntax-jsx': 7.27.1(@babel/core@7.27.4)
@@ -7332,8 +7332,8 @@ snapshots:
       '@babel/template': 7.27.2
       '@babel/traverse': 7.27.4
       '@babel/types': 7.27.6
-      '@tanstack/router-core': 1.120.17
-      '@tanstack/router-generator': 1.120.18(@tanstack/react-router@1.120.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
+      '@tanstack/router-core': 1.120.19
+      '@tanstack/router-generator': 1.120.20(@tanstack/react-router@1.120.20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
       '@tanstack/router-utils': 1.120.17
       '@tanstack/virtual-file-routes': 1.120.17
       '@types/babel__core': 7.20.5
@@ -7344,7 +7344,7 @@ snapshots:
       unplugin: 2.3.5
       zod: 3.25.56
     optionalDependencies:
-      '@tanstack/react-router': 1.120.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@tanstack/react-router': 1.120.20(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       vite: 6.3.5(@types/node@22.15.30)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.41.0)(tsx@4.19.4)(yaml@2.8.0)
     transitivePeerDependencies:
       - supports-color
@@ -7360,9 +7360,9 @@ snapshots:
 
   '@tanstack/virtual-file-routes@1.120.17': {}
 
-  '@tanstack/zod-adapter@1.120.18(@tanstack/react-router@1.120.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(zod@3.25.56)':
+  '@tanstack/zod-adapter@1.120.20(@tanstack/react-router@1.120.20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(zod@3.25.56)':
     dependencies:
-      '@tanstack/react-router': 1.120.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@tanstack/react-router': 1.120.20(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       zod: 3.25.56
 
   '@testing-library/dom@10.4.0':
@@ -7403,11 +7403,11 @@ snapshots:
   '@types/babel__template@7.4.4':
     dependencies:
       '@babel/parser': 7.27.5
-      '@babel/types': 7.27.3
+      '@babel/types': 7.27.6
 
   '@types/babel__traverse@7.20.7':
     dependencies:
-      '@babel/types': 7.27.3
+      '@babel/types': 7.27.6
 
   '@types/chai@5.2.2':
     dependencies:
@@ -7512,7 +7512,7 @@ snapshots:
       jsonparse: 1.3.1
       through: 2.3.8
 
-  acorn@8.14.1: {}
+  acorn@8.15.0: {}
 
   add-stream@1.0.0: {}
 
@@ -9828,7 +9828,7 @@ snapshots:
   terser@5.41.0:
     dependencies:
       '@jridgewell/source-map': 0.3.6
-      acorn: 8.14.1
+      acorn: 8.15.0
       commander: 2.20.3
       source-map-support: 0.5.21
 
@@ -9992,7 +9992,7 @@ snapshots:
 
   unplugin@2.3.5:
     dependencies:
-      acorn: 8.14.1
+      acorn: 8.15.0
       picomatch: 4.0.2
       webpack-virtual-modules: 0.6.2
 
