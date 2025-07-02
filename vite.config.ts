@@ -8,6 +8,8 @@ import { VitePWA, type VitePWAOptions } from 'vite-plugin-pwa';
 import tsConfigPaths from 'vite-tsconfig-paths';
 
 const pwaOptions: Partial<VitePWAOptions> = {
+  // TODO: enable if want to enable PWA service worker
+  disable: true,
   registerType: 'autoUpdate',
   workbox: {
     cleanupOutdatedCaches: true,
