@@ -1,4 +1,5 @@
 import type { QueryClient } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import {
   createRootRouteWithContext,
   HeadContent,
@@ -6,7 +7,6 @@ import {
 } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
-import { Providers } from '@/lib/components/providers';
 import { RootLayout } from '@/lib/layout';
 
 const title = 'Meal App';
@@ -105,12 +105,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     component: () => (
       <>
         <HeadContent />
-        <Providers>
-          <RootLayout>
-            <Outlet />
-          </RootLayout>
-        </Providers>
+        <RootLayout>
+          <Outlet />
+        </RootLayout>
         <TanStackRouterDevtools position="bottom-right" />
+        <ReactQueryDevtools initialIsOpen={false} />
       </>
     ),
   },
