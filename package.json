@@ -67,7 +67,7 @@
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vite-pwa/assets-generator": "^1.0.0",
-    "@vitejs/plugin-react": "^4.6.0",
+    "@vitejs/plugin-react-oxc": "^0.2.3",
     "clsx": "^2.1.1",
     "commit-and-tag-version": "^12.5.1",
     "cross-env": "^7.0.3",

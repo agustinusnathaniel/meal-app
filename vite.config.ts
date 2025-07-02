@@ -1,7 +1,7 @@
 import { ValidateEnv } from '@julr/vite-plugin-validate-env';
 import tailwindcss from '@tailwindcss/vite';
-import { TanStackRouterVite } from '@tanstack/router-plugin/vite';
-import viteReact from '@vitejs/plugin-react';
+import { tanstackRouter } from '@tanstack/router-plugin/vite';
+import viteReact from '@vitejs/plugin-react-oxc';
 import { defineConfig } from 'vite';
 import checker from 'vite-plugin-checker';
 import { VitePWA, type VitePWAOptions } from 'vite-plugin-pwa';
@@ -34,7 +34,7 @@ const pwaOptions: Partial<VitePWAOptions> = {
 export default defineConfig({
   plugins: [
     ValidateEnv(),
-    TanStackRouterVite({ target: 'react', autoCodeSplitting: true }),
+    tanstackRouter({ target: 'react', autoCodeSplitting: true }),
     viteReact(),
     tailwindcss(),
     tsConfigPaths(),
