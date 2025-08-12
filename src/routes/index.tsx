@@ -6,7 +6,6 @@ import {
   stripSearchParams,
   useNavigate,
 } from '@tanstack/react-router';
-import { fallback, zodValidator } from '@tanstack/zod-adapter';
 import { domAnimation, LazyMotion } from 'motion/react';
 import * as m from 'motion/react-m';
 import { z } from 'zod';
@@ -18,7 +17,7 @@ import { useMediaQuery } from '@/lib/hooks/use-media-query';
 import { fetchMealSearchResultQueryOptions } from '@/lib/services/api/search';
 
 const mealSearchSchema = z.object({
-  keyword: fallback(z.string(), '').default(''),
+  keyword: z.string().default('').catch(''),
 });
 
 const defaultSearchParams = {
@@ -27,7 +26,7 @@ const defaultSearchParams = {
 
 export const Route = createFileRoute('/')({
   component: App,
-  validateSearch: zodValidator(mealSearchSchema),
+  validateSearch: mealSearchSchema,
   loaderDeps: ({ search: { keyword } }) => ({ keyword }),
   loader: ({ context: { queryClient }, deps }) => {
     queryClient.ensureQueryData(

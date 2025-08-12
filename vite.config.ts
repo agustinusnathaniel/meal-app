@@ -33,20 +33,26 @@ const pwaOptions: Partial<VitePWAOptions> = {
 };
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [
-    ValidateEnv(),
-    tanstackRouter({ target: 'react', autoCodeSplitting: true }),
-    viteReact(),
-    tailwindcss(),
-    tsConfigPaths(),
-    checker({
-      typescript: true,
-      biome: true,
-    }),
-    VitePWA(pwaOptions),
-  ],
-  server: {
-    open: true,
-  },
+export default defineConfig(({ mode }) => {
+  const isCheckDisabled = mode === 'production';
+  return {
+    plugins: [
+      ValidateEnv(),
+      tanstackRouter({ target: 'react', autoCodeSplitting: true }),
+      viteReact(),
+      tailwindcss(),
+      tsConfigPaths(),
+      ...(!isCheckDisabled
+        ? [
+            checker({
+              typescript: true,
+            }),
+          ]
+        : []),
+      VitePWA(pwaOptions),
+    ],
+    server: {
+      open: true,
+    },
+  };
 });
